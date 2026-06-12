@@ -18,7 +18,7 @@ let state = 'START';
 let bird, pipes, score, best, frame, groundOff;
 
 function reset() {
-  bird = { y: canvas.height * 0.4, vy: 0, rot: 0 };
+  bird = { x: BIRD_X, y: canvas.height * 0.4, vy: 0, rot: 0 };
   pipes = [];
   score = 0;
   frame = 0;
