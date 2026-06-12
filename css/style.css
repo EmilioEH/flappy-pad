@@ -1,0 +1,5 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none}
+body{font-family:-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#222;display:flex;justify-content:center;align-items:center}
+#app{width:100%;max-width:480px;height:100dvh;display:flex;position:relative}
+#game{width:100%;height:100%;touch-action:none;display:block;cursor:pointer}
