@@ -28,7 +28,7 @@ function reset() {
 function tap() {
   if (state === 'START') { state = 'PLAYING'; bird.vy = FLAP_VEL; }
   else if (state === 'PLAYING') { bird.vy = FLAP_VEL; }
-  else if (state === 'GAME_OVER') { reset(); state = 'START'; }
+  else if (state === 'GAME_OVER') { reset(); state = 'PLAYING'; bird.vy = FLAP_VEL; }
 }
 
 function spawnPipe() {
