@@ -1,0 +1,11 @@
+{
+  "name": "flappy-pad",
+  "version": "2.0.0",
+  "private": true,
+  "description": "A gentle tap-to-fly game for young children.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "start": "npx --yes http-server . -p 8080 -c-1"
+  }
+}
