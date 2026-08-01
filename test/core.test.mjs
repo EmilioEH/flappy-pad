@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  clamp, DIFFICULTIES, difficultyById, computeTuning,
+  clamp, wrap, DIFFICULTIES, difficultyById, computeTuning,
   pipeGapY, circleRectHit, circleHit,
 } from '../js/core.js';
 
@@ -12,6 +12,21 @@ test('clamp bounds values', () => {
   assert.equal(clamp(5, 0, 10), 5);
   assert.equal(clamp(-1, 0, 10), 0);
   assert.equal(clamp(99, 0, 10), 10);
+});
+
+// Scroll offsets are driven by an ever-growing clock. Plain `%` keeps the sign of
+// the dividend, so once the clock passed the initial offset the parallax layers
+// went permanently negative and drifted off-screen for good after ~4 minutes.
+test('wrap stays in [0, m) for negative and growing inputs', () => {
+  assert.equal(wrap(5, 10), 5);
+  assert.equal(wrap(-1, 10), 9);
+  assert.equal(wrap(-25, 10), 5);
+  for (const t of [0, 60, 300, 3600, 86400]) {
+    for (const speed of [8, 12, 16, 20]) {
+      const v = wrap(200 - t * speed, 700);
+      assert.ok(v >= 0 && v < 700, `wrap gave ${v} at t=${t}s speed=${speed}`);
+    }
+  }
 });
 
 test('difficultyById falls back to the easiest preset', () => {

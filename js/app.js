@@ -1,5 +1,5 @@
 import {
-  clamp, DIFFICULTIES, difficultyById, computeTuning,
+  clamp, wrap, DIFFICULTIES, difficultyById, computeTuning,
   pipeGapY, circleRectHit, circleHit,
 } from './core.js';
 
@@ -284,7 +284,7 @@ function update(dt) {
   if (g.state === 'START') {
     b.y = view.h * 0.4 + Math.sin(g.time * 2.2) * tuning.diameter * 0.28;
     b.rot = Math.sin(g.time * 2.2) * 6;
-    g.groundOff = (g.groundOff + tuning.speed * 0.35 * dt) % (tuning.diameter * 0.5);
+    g.groundOff = wrap(g.groundOff + tuning.speed * 0.35 * dt, tuning.diameter * 0.5);
     return;
   }
 
@@ -316,7 +316,7 @@ function update(dt) {
   b.rot += (targetRot - b.rot) * Math.min(1, dt * 9);
 
   for (const p of g.pipes) p.x -= tuning.speed * dt;
-  g.groundOff = (g.groundOff + tuning.speed * dt) % (tuning.diameter * 0.5);
+  g.groundOff = wrap(g.groundOff + tuning.speed * dt, tuning.diameter * 0.5);
 
   const last = g.pipes[g.pipes.length - 1];
   if (!last || last.x < view.w - tuning.spawnDist) spawnPipe();
@@ -402,7 +402,7 @@ function drawSky() {
   ctx.fillStyle = 'rgba(255,255,255,0.55)';
   for (let i = 0; i < 4; i++) {
     const speed = 8 + i * 4;
-    const cx = ((i * cw * 0.37 + view.w * 2 - g.time * speed) % (cw * 1.4)) - cw * 0.2;
+    const cx = wrap(i * cw * 0.37 - g.time * speed, cw * 1.4) - cw * 0.2;
     const cy = view.h * (0.08 + i * 0.055);
     const r = view.h * (0.022 + (i % 2) * 0.008);
     ctx.beginPath();
@@ -913,6 +913,10 @@ window.flappyDebug = {
   get birdY() { return g.bird.y; },
   get birdVy() { return g.bird.vy; },
   get simTime() { return g.time; },
+  get trophies() { return g.trophies; },
+  get best() { return best; },
+  get muted() { return Sound.isMuted(); },
+  get pipes() { return g.pipes.map(p => ({ ...p })); },
   get difficulty() { return difficulty.id; },
   get view() { return { ...view }; },
   get tuning() { return { ...tuning }; },

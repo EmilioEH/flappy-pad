@@ -5,7 +5,8 @@
   "description": "A gentle tap-to-fly game for young children.",
   "type": "module",
   "scripts": {
-    "test": "node --test \"test/**/*.test.mjs\"",
+    "test": "npm run lint && node --test \"test/**/*.test.mjs\"",
+    "lint": "eslint .",
     "start": "npx --yes http-server . -p 8080 -c-1"
   }
 }

@@ -4,7 +4,8 @@ A gentle tap-to-fly game for children aged roughly 3–6. Installable PWA, no
 dependencies, no network calls, no ads, no analytics, fully playable offline.
 
 ```
-npm test      # unit tests for the game math
+npm test      # lint + unit tests for the game math
+npm run lint
 npm start     # serve at http://localhost:8080
 ```
 

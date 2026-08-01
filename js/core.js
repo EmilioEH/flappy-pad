@@ -3,6 +3,11 @@
 
 export const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
 
+// JS `%` keeps the sign of the dividend, so scrolling offsets driven by an
+// ever-growing clock go permanently negative once they pass zero and the
+// scrolled element never comes back. Always wrap with this instead.
+export const wrap = (v, m) => ((v % m) + m) % m;
+
 // Difficulty is described in human terms rather than pixels-per-frame, so the game
 // feels identical on a 60Hz phone, a 120Hz ProMotion iPad, and any screen size:
 //   gapRatio  — vertical clearance in bird-diameters
