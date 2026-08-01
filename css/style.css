@@ -1,5 +1,8 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;overflow:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none}
-body{font-family:-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#222;display:flex;justify-content:center;align-items:center}
-#app{width:100%;max-width:480px;height:100dvh;display:flex;position:relative}
-#game{width:100%;height:100%;touch-action:none;display:block;cursor:pointer}
+html,body{height:100%;overflow:hidden;overscroll-behavior:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+body{font-family:-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#1b2b34;display:flex;justify-content:center;align-items:center}
+/* #app is sized in JS so the playfield keeps a sensible aspect ratio on tablets
+   instead of becoming a thin column between black bars. */
+#app{position:relative;display:block;overflow:hidden}
+#game{display:block;width:100%;height:100%;touch-action:none;cursor:pointer}
+noscript{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px}
