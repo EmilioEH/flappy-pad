@@ -1,12 +1,12 @@
 {
   "name": "Flappy Pad",
   "short_name": "Flappy",
-  "description": "A flappy bird game",
-  "start_url": "/",
-  "scope": "/",
+  "description": "A gentle tap-to-fly game for young children.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#4dc9f6",
-  "theme_color": "#4dc9f6",
+  "background_color": "#5ec9f7",
+  "theme_color": "#5ec9f7",
   "orientation": "portrait",
   "icons": [
     {
