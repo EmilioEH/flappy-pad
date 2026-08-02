@@ -4,9 +4,16 @@
   "private": true,
   "description": "A gentle tap-to-fly game for young children.",
   "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "test": "npm run lint && node --test \"test/**/*.test.mjs\"",
+    "test": "npm run lint && node --test",
     "lint": "eslint .",
-    "start": "npx --yes http-server . -p 8080 -c-1"
+    "start": "http-server . -p 8080 -c-1"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "http-server": "^14.1.1"
   }
 }
