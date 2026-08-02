@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   clamp, wrap, DIFFICULTIES, difficultyById, computeTuning,
   pipeGapY, circleRectHit, circleHit,
-} from '../js/core.js';
+} from '../public/js/core.js';
 
 // A representative spread: tall phone, iPad-ish, landscape phone, tiny window.
 const VIEWPORTS = [[390, 844], [756, 1080], [590, 390], [280, 300], [200, 240]];

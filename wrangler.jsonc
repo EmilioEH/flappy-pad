@@ -1,0 +1,11 @@
+{
+  // Flappy Pad is a purely static site, so this is an assets-only Worker:
+  // there is no `main` entry point, Cloudflare just serves ./public from the edge.
+  // The site lives in its own directory so that repository tooling — and, more
+  // importantly, .git and node_modules — can never be published to the CDN.
+  "name": "flappy-pad",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": "./public"
+  }
+}

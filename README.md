@@ -40,9 +40,9 @@ the app stays asset-free. A mute toggle sits on the start and game-over screens.
 
 | Path | |
 |---|---|
-| `js/core.js` | Pure game math — tuning, gap placement, collision. No DOM. |
-| `js/app.js` | Simulation, rendering, input, audio. |
+| `public/js/core.js` | Pure game math — tuning, gap placement, collision. No DOM. |
+| `public/js/app.js` | Simulation, rendering, input, audio. |
 | `test/core.test.mjs` | Unit tests over `core.js`. |
-| `sw.js` | Offline cache. **Bump `CACHE` on every release** or clients keep the old build. |
+| `public/sw.js` | Offline cache. **Bump `CACHE` on every release** or clients keep the old build. |
 
 `window.flappyDebug` exposes read-only game state for automated play-testing.

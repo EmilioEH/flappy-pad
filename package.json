@@ -10,7 +10,7 @@
   "scripts": {
     "test": "npm run lint && node --test",
     "lint": "eslint .",
-    "start": "http-server . -p 8080 -c-1"
+    "start": "http-server public -p 8080 -c-1"
   },
   "devDependencies": {
     "eslint": "^9.0.0",

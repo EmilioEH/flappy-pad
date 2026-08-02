@@ -1,6 +1,6 @@
 export default [
   {
-    files: ['js/**/*.js', 'test/**/*.mjs'],
+    files: ['public/js/**/*.js', 'test/**/*.mjs'],
     languageOptions: {
       ecmaVersion: 2023,
       sourceType: 'module',
@@ -23,7 +23,7 @@ export default [
     },
   },
   {
-    files: ['sw.js'],
+    files: ['public/sw.js'],
     languageOptions: {
       ecmaVersion: 2023,
       sourceType: 'script',
